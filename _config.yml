@@ -24,7 +24,7 @@ author:
   avatar           : "u0046781.jpg"
   name             : "Your Sidebar Name"
   pronouns         : # example: "she/her"  
-  bio              : "Software engineering and information systems engineering researcher. Topics: software architecture, self-adaptive systems, threat modeling, risk quantification, distributed storage and data access"
+  bio              : "Research in Software Engineering and Information Systems Engineering. Key topics: Software architecture, self-adaptive systems, security, privacy, data protection, regulation, threat modeling, risk quantification, distributed storage, data protection"
   location         : "Leuven"
   employer         : "LIRIS, Faculty of Economics and Business (FEB), KU Leuven"
   uri              : # URL
@@ -219,7 +219,7 @@ collections:
     output: true
     permalink: /:collection/:path/
   portfolio:
-    output: true
+    output: false
     permalink: /:collection/:path/
   talks:
     output: true
