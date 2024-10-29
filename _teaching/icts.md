@@ -1,7 +1,7 @@
 ---
 title: "Inleiding tot de Informatie- en Communicatie Systemen en Technologiëen"
 collection: teaching
-type: "bachelor course"
+type: "Bachelor's course"
 permalink: /teaching/icts
 venue: "Faculty of Economics and Business (FEB), KU Leuven"
 date: 2024-10-29 

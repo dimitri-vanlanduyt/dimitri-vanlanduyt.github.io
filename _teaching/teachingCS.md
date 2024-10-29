@@ -1,7 +1,7 @@
 ---
 title: "Other teaching activities at the Department of Computer Science"
 collection: teaching
-type: ""
+type: "Master's and bachelor's courses"
 permalink: /teaching/teachingCS
 venue: "Department of Computer Science, Faculty of Engineering Science, KU Leuven"
 date: 2024-10-29
