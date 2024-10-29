@@ -4,7 +4,7 @@ collection: teaching
 type: ""
 permalink: /teaching/teachingCS
 venue: "Department of Computer Science, Faculty of Engineering Science, KU Leuven"
-date: 2005 to 2025
+date: 2025
 location: "Heverlee, Belgium"
 ---
 
