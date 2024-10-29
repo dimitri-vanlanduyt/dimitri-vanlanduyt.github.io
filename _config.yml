@@ -21,7 +21,7 @@ repository               : "dimitri-vanlanduyt/dimitri-vanlanduyt.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "u0046781.jpg"
   name             : "Your Sidebar Name"
   pronouns         : # example: "she/her"  
   bio              : "Software engineering and information systems engineering researcher. Topics: software architecture, self-adaptive systems, threat modeling, risk quantification, distributed storage and data access"
