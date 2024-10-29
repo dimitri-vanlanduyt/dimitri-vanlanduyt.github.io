@@ -11,7 +11,7 @@ location: "Heverlee, Belgium"
 
 [Advanced Methods for Security and Privacy by Design (AMSPD)](https://onderwijsaanbod.kuleuven.be/2024/syllabi/e/H0Q32AE.htm) (B-KUL-H0Q32A)
 
-- **Educational program**: advanced master in cyber security
+- **Educational program**: Advanced Master in Cybersecurity
 - **Role**: Co-instructor
 - **Academic years**: 
 	- 2022-2023

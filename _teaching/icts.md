@@ -4,7 +4,7 @@ collection: teaching
 type: "bachelor course"
 permalink: /teaching/icts
 venue: "Faculty of Economics and Business (FEB), KU Leuven"
-date: 2024-10-29 00:00:00 +0000
+date: 2024-10-29 
 location: "Leuven, Belgium"
 ---
 

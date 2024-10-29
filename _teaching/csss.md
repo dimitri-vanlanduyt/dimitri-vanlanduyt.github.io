@@ -4,7 +4,7 @@ collection: teaching
 type: "Master's course"
 permalink: /teaching/csss
 venue: "Department of Computer Science, Faculty of Engineering Science, KU Leuven"
-date: #2024-10-29 00:00:00 +0000
+date: 2024-10-29 
 location: "Heverlee, Belgium"
 ---
 
