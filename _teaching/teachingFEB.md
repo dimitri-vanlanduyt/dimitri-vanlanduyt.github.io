@@ -4,7 +4,7 @@ collection: teaching
 type: ""
 permalink: /teaching/teachingFEB
 venue: "Faculty of Economics and Business (FEB), KU Leuven"
-date: 2025
+date: 2024-10-29 00:00:00 +0000
 location: "Leuven, Belgium"
 ---
 
