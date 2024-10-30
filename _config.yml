@@ -22,12 +22,12 @@ repository               : "dimitri-vanlanduyt/dimitri-vanlanduyt.github.io"
 author:
   # Biographic information
   avatar           : "u0046781.jpg"
-  name             : "Your Sidebar Name"
+  name             : "Dimitri Van Landuyt"
   pronouns         : # example: "she/her"  
-  bio              : "Research in Software Engineering and Information Systems Engineering. Key topics: Software architecture, self-adaptive systems, security, privacy, data protection, regulation, threat modeling, risk quantification, distributed storage, data protection"
+  bio              : "Researcher in Software Engineering and Information Systems Engineering. \n Main topics: Software architecture, self-adaptive systems, security, privacy, data protection, regulation, threat modeling, risk quantification, distributed storage, data protection"
   location         : "Leuven"
-  employer         : "LIRIS, Faculty of Economics and Business (FEB), KU Leuven"
-  uri              : # URL
+  employer         : "FEB, KU Leuven"
+  uri              : "https://feb.kuleuven.be/dimitri.vanlanduyt"
   email            : "dimitri.vanlanduyt@kuleuven.be" 
 
   # Academic websites
@@ -85,7 +85,7 @@ publication_category:
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
-breadcrumbs              : false # true, false (default)
+breadcrumbs              : true # true, false (default)
 words_per_minute         : 160
 future                   : true
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
@@ -218,11 +218,11 @@ collections:
   publications:
     output: true
     permalink: /:collection/:path/
-  portfolio:
-    output: false
+  service:
+    output: true
     permalink: /:collection/:path/
   talks:
-    output: true
+    output: false
     permalink: /:collection/:path/
 
 
