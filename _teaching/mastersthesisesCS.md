@@ -2,7 +2,7 @@
 title: "Supervision of Master's Thesises"
 collection: teaching
 type: "Master's thesises"
-permalink: /teaching/mastersthesises
+permalink: /teaching/mastersthesisesCS
 venue: "Department of Computer Science, Faculty of Engineering Science, KU Leuven"
 date: 2024-10-29 
 location: "Heverlee, Belgium"
