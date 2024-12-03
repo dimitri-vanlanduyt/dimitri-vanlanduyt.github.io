@@ -1,7 +1,7 @@
 ---
 title: "The role of assumptions in STRIDE threat modeling"
 collection: publications
-type: ""
+type: "manuscripts"
 permalink: /publications/assumptions
 venue: # ""
 date: 2024-12-03
