@@ -3,7 +3,7 @@ title: "The role of assumptions in STRIDE threat modeling"
 collection: publications
 type: "manuscripts"
 permalink: /publications/assumptions
-venue: # ""
+venue: "Software and Systems Modeling (SoSyM)"
 date: 2024-12-03
 location: # "London, UK"
 ---
@@ -22,4 +22,4 @@ Both data sets can be downloaded below.
     - [csv version](files/assumption_dataset_experts_STRIDE.csv)
     - [Excel version](files/assumption_dataset_experts_STRIDE.xlsx)
 
-For more information: check out ["A descriptive study of assumptions in STRIDE security threat modeling"](https://link.springer.com/article/10.1007/s10270-021-00941-7) published in Software and Systems Modeling (SoSym).
+For more information: check out ["A descriptive study of assumptions in STRIDE security threat modeling"](https://link.springer.com/article/10.1007/s10270-021-00941-7) published in Software and Systems Modeling (SoSyM).
