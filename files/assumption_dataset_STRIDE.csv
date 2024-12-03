@@ -1,0 +1,613 @@
+Participant ID,Assumption ID,Summary
+1 ,A10,Data flow between PDS and mail provide is secure
+1 ,A6,PDS users cannot claim that they havent received a document because it is very for edocs to check whether the document is in the PDS
+1 ,A7,PDS users can change their information after logging in
+1 ,A8,No harm can be done creating a new user for the PDS regarding tampering or information disclosure since it would involve your own PDS
+1 ,A9,It is impossible to register a new user if the username or emailaddress are already in use
+2 ,A10,the delivery manager and scheduler are deployed on the same physical node
+2 ,A11,the PDS docs and PDS user data are deployed on the same physical node
+2 ,A12,External delivery services are assumed to be professionally enough and have proper authentication handling
+2 ,A13,PDS user logs in via browser and uses credentials
+2 ,A14,A13+ visits of a user to the PDS are logged
+2 ,A6,The document ID cannot be guessed and an adversary cannot change the delivery status of documents as a consequence
+2 ,A7,The delivery scheduler has no flows going outside the trust boundary (+A1)
+2 ,A8,the generated docs archive has no flow going outside the trust boundary
+3 ,A10,No authentication when creating a new PDS user
+3 ,A11,Tampering with documents is not possible as they are not changed after creationg and customer organisations are not considered here
+3 ,A12,Tampering with user dara is not considered except for threat T6 in which is the info is tampered with at creation
+3 ,A13,Information disclosure of PDS user data is considered impossible as the PDS proces (p3) never sends it anywhere and itis safe angainst code & memory level attacks
+3 ,A14,All information sent over channels in the trust boundary (DF11-DF23) is either over internal infrastructure or encrypted. As such the data can not be tampered with or be discoed as edocs employees are considered trustworthy
+3 ,A17,Information disclosure through sidechannels is considered nowehere as the difficulty for such an attack would make it not the worth it for edocs data
+3 ,A18,"As logs are never mentioned in the description of the edocs system, it is assumed no logs are kept"
+3 ,A19,eDocs employees can access the data stores from the outside
+3 ,A6a,"Spoofing of E1,E2 and E3 does not happen as they are explicity know by the system"
+3 ,A6B,There is little benefit to setting wrong (delivery) statuses
+3 ,A7,"E1, E2, and E3 have an SLA with eDocs"
+3 ,A8,Repudiation by a PDS user is considered to be too unlikely (no motivation) to be considered a threat
+3 ,A9,Repudiation by P1-P3 is not considered as threats originate outside of the trust boundary
+4 ,A10,As logs are maintained for every step in the generation and delivery process we assume repudiation is not possible for the PDS user
+4 ,A11,Some logs are kept in the PDS store to log who performed what actions
+4 ,A6,"DF11,DF12 and DF13 are inside the trust boundary and have no dirct external influences so it is assumed that these three flows are not threatened b tampering or informatnion disclosure"
+4 ,A7,DF7 is also the flow non-registered recipients use to access their document via unique link
+4 ,A8,We assume passwords can only be changed after confirmation mails
+4 ,A9,"As assumed in A2, the flows DF1-DF3, DF6-DF10 are encrypted and thus considered safe from tampering and information disclosure"
+5 ,A10,DF19-DF23 are encrypted and thus considered to have confidentiality and integrity
+5 ,A11,Print service repudiaton poses no threat
+5 ,A12,DS1 is protected and can only be read by a delivery scheduler P1
+5 ,A13,Only one document generator process can add documents to DS1
+5 ,A6,no authentication required to request document with URL
+5 ,A7,DF4 channel not encrypted
+5 ,A8,DS3 is protected
+5 ,A9,passwords are encrypted
+6 ,A10,"Spoofing the PDS can only obtain request information, not cosndered a threat"
+6 ,A11,P1 gets no important information thus spoofing threat islow
+6 ,A12,P1-P3 is considered a trustworthy in boundary process. Repudiateion is not threat
+6 ,A6,DF4-5 is considered an unecnrypted line
+6 ,A7,PDS user is identified by means of credentials
+6 ,A8,The in-trust boundary data flows are considered susceptible to LowPriority threats because of assumption A1
+6 ,A9,E1-E3 are cosnidered reliable so repudiation is not a threat here
+7 ,A10,"the connection between E1 and P1 is complex, hard to simulate"
+7 ,A11,P2 and P3 are stateless
+7 ,A12,delivery status reports only contain information that is useless to attackers
+7 ,A13,Guessing URLS to download take extremely long (URLs are complex)
+7 ,A6,communication between P2 and E3 happens through sockets
+7 ,A7,The archive (DS1) is sufficiently protected
+7 ,A8,the connection between P2 and E3 is established by using a complex protocol that is not easily reproduced
+7 ,A9,DS3 is sufficiently protected
+8 ,A6 ,The delivery manager cannot be tampered with because of good isolation from outside world
+8 ,A7,Processes can normally be trusted and even if tampered with there is no reason to deny any action
+8 ,A8,No input validation takes place at the processes
+9 ,A10,eDocs will always deliver all documents that were asked for
+9 ,A11,PDS user data is never sent outside of trust boundary
+9 ,A12,Authentication info is securely stored (no-plain-text)
+9 ,A14,The scheduler can not receive communications from outside processes
+9 ,A16,"DS1,2,3 do not store logs"
+9 ,A6,E1-E3 want to stay partners with edocs and not deliver more or less than asked for => no repudiation threats here
+9 ,A8,PDS user has no reason to deny having asked/received a document
+9 ,A9,a PDS-user is authenticated by means of credentials
+10 ,A10,"Spoofing of P1 and p2 and tampering with P1,P2 and P3 are not applicable ecause these are from withing the trust boundary"
+10 ,A11,"Non-repudiation of P1, P2 and P3 are not applicable and ID of P1. P1 has no communication to the outside world, also not of P3 because of authentication"
+10 ,A12,"Repudation is not applicable to P1, P2 and P3 because these are within trust boundary"
+10 ,A13,"When a new user registers, his input will be checked against formatting rules"
+10 ,A14,Tampering with DS1 and DS2 is not appicable becauce no indirect/direct communication with outside
+10 ,A15,The document sent to E1 and E2 are signed with a specific key
+10 ,A16,PDS user is logged in with credentials
+10 ,A17,ID for DS1-DS3 is not appicable because no direct communication with outside world
+10 ,A6b,Correct deliveryhas been agreed upon with delivery service (E1-E3)
+10 ,A7,"Thorough background checks on E1,E2 and E3"
+11 ,A10,PDS stores no logs
+11 ,A11,Doc ID and or delivery statuses hold no crucial/confidential information
+11 ,A12,System noticeses when an internal lookup is tampered with by wrong doc IDS when a document is returned
+11 ,A13,Attacker can use vulnerabilities/backdoors to get access to internal data flows
+11 ,A14,"Internally, lookup URLS are unencrypted"
+11 ,A6,"Login for the PDS user is simple, e.g. no 2-factor auth"
+11 ,A7,"Delivery status notifications overwrite each other, e.g. ""received"" and later ""failed"" -> doc is failed"
+11 ,A8,PDS user has no control over any logs
+11 ,A9A,PDS user registration system does not record bad attempts
+11 ,A9b,PDS login system does not record bad attempts
+12 ,A10,All backups and replicas of databases are secured in accordance with the original
+12 ,A11,All communication with 3d parties in encrypted
+12 ,A6,"Delivery noted within trust boundary, PDS user cannot deny"
+12 ,A7,External services are assumed to have no malicious intent but are however still not trusted
+12 ,A8,DBs are relational using popular technology
+12 ,A9,All flows in the trust boundary are secure and are not publicly available (behind firewall)
+13 ,A6,The credentials of employees are secure within the customer organisation's system
+13 ,A7,"When a user opens a document, it is marked as ""delivered"""
+13 ,A8,The external services and the delivery manager are protected against upstream insertion
+13 ,A8,The external services and the delivery manager are protected against upstream insertion
+14 ,A10,Repudiation by the processes is not considered because of A1 and there would be no advantage
+14 ,A11,"Information disclosure of the data stores is not considered because no external entity can try to receive information from these data stores not belonging to them (because of A1, this will also not be done by employees)"
+14 ,A12,"Tampering with the PDS docs and the PDS user data is not considered beause no external entity can change documents: te=he PDS docs and external entitites can only register a new user (if user already existis,the register process will handle this) ( (because of A1, this will also not be done by employees)"
+14 ,A13,Information Disclosure from the processes is not considered because they are all in the trust boundary. A1 holds and the side information that can be retrieved is not very useful
+14 ,A14,Tampering with the data flows DF11-DF23 are not considered because they are all inside the trust boundary and A1 holds
+14 ,A15,Information disclosure from the data flows DF11-DF23 are not considered because they are all inside the trust boundary and A1 holds
+14 ,A6,The PDS is authenticated using credintials (uname/pwd) given during registration
+14 ,A7,Tampering of data flows mentioned in Assumption A2 is not considered because they have channel confidentiality and integrity 
+14 ,A8,Information Disclosure of data flows mentioned in Assumption A2 is not considered because they have channel confidentiality and integrity
+14 ,A9,There are (no?) logs involved in the EDocs system so repudiation of the data stores is not considered
+15 ,A6,We consider E1-E3 to be trustworthy and will not repudiate
+15 ,A7,"We assume documents are linked user ID and not by name, e-mail"
+15 ,A8,The DS2 is accessible via URL
+15 ,A9,Communication between processes is secure
+16 ,A10,"Even with the chance of SQL injection attacks, sensitive info such as user credentials will not be revealed as they are stored in encrypted format. "
+16 ,A11,Encryption keys are stored safely.
+16 ,A6,E1-E3 are trustworthy in that they have sufficient security measures in place to prevent threats originating from them
+16 ,A7,The (PDS USer) E4 is authenticated by means of credentials
+16 ,A8,A user account is maintained that logs all the activity of a PDS user in the system
+16 ,A9,Tracking service provided by eDocs is reliable and supplies correct info about delivery of documents
+17 ,A10,changing delivery status is omnipotent (sic)
+17 ,A11,EDocs operators can access a dashboard
+17 ,A12,Third party delivery services dont log in with credentials or the credentials are stored carelessly
+17 ,A13,The interface to communicate with the email provider is known 
+17 ,A14,Notifications are sent to the eDocs operator when components of eDocs fail
+17 ,A6,The PDS user authenticates with credentials
+17 ,A7,3d party delivery services acknowledge incoming documents
+17 ,A8,nothing useful can be learned when eavesdropping on DF5
+17 ,A9,"when delivery manager receives a wrong DocID, an exception is thrown"
+18 ,A6,"The delivery channels (print,zoomit,email) have a way of making them known to the system that allows them to be impersonated (e.g. using credentials)"
+18 ,A7,"Delivery channels (print,postal, zoomit) are assumed to be honest and try to perform the agreed upon delivery"
+18 ,A8,PDS users are authenticated through credentials
+18 ,A9,The datastores are not sufficiently protected
+19 ,A1,E1-E3 transfer configuration is set correctly and therefore no risk of spoofing
+19 ,A10,User registration requires strong password
+19 ,A11,"E1,E2,E3 are trustworthy services with no intentions in harming eDocs"
+19 ,A12,All inner data flows are because of easy integration encrypted: DF11-DF23=> No man-in-the-middle
+19 ,A13,"We consider delivery info from email provider as not sensitive, thus no ID is considered"
+19 ,A7a,"E2,E3 delivery status is reliable and can tell if a document was sent. "
+19 ,A7b,E1 should also provide info about receiving docs
+19 ,A8,"Data stores DS1, DS2,DS3 are strongly protected"
+19 ,A9,Physical access to datastores is able either for the employees themselves or within their company
+20 ,A6,"The print service, zoomit, and the email provider have to confirm accepting the documents. This ensures non-repudiation"
+20 ,A7,The PDS keeps tracks of the delivery status of each document and sends updates to the delivery manager. PDS users can 't deny receiving a document
+21 ,A6,the pds user is authenticated by means of credentials
+21 ,A7,An email address is always unique to a user. No double account creation is possible
+21 ,A8,The print service and zoomit service use a form of authentication and authorization so the edocs always knows it s working with a trusted party
+21 ,A9,The employees of the zoomit and postal mail services systems are trustworthy
+22 ,A10,URLs were used to perform a direct download are unique and temporary (no guessing)
+22 ,A11,"Spoofing a process is not possible for inter process communication (DF13,15-18) (could be possible but if an attacker has this kind of access/power there are bigger concerns"
+22 ,A12,Rubber hose attack (physical assault on admins) are unlikely
+22 ,A13,The company informs its users about the dangers of phishing emails
+22 ,A14,"All external software is secure (DB mgmt, web libs, ..)"
+22 ,A15,"No physical access to the data stores possible, except for employees (with the right permission)"
+22 ,A17,"The processes are run at the same physical location, thus their connections are secure (not possible for a very large company (google/facebook))"
+22 ,A6,"The DS3 data store is encrypted, without the key the content is unreadable (brute-force would take too long)"
+22 ,A7,The key mentioned in A6 is stored separate and secure
+22 ,A8,"All input (users,customers,..) is naturalized: no SQLi, XSS, "
+22 ,A9,"Assignment in docIds is random, not sequential: this rules out spoofing by guessing the DocID"
+23 ,A10,"The PDS user data (DS3) is checked on correct names, emails and contains no other characters that could be abused"
+23 ,A6,The data flow between P2 and P3 is considered safe and authenticated
+23 ,A7,The sending of documents between P1 and P2 is securt
+23 ,A8,The PDS user data (DS3) contains no duplicate emails
+23 ,A9,The generated docs archive (DS1) contains no duplicate documents
+24 ,A10,The authentication between P2 and E3 is secure and is by means of credentials
+24 ,A11,The document stores are secure (protected by pwd)
+24 ,A12,The login credentials of a PDS user are his username and password
+24 ,A13,A customer doesn't need to verify the creation of his account
+24 ,A14,"When a password is being reset, the reset link is sent to the email address of the PDS user"
+24 ,A15,The delivery manager needs no form of authentication
+24 ,A8,The internal communication channels are encrypted and thus have channel confidentiality and integrity
+24 ,A9,The communication channel between E3 and P4 are encrypted and are thus considered to have channel confidentiality and integrity (DF4-5)
+25 ,A10,"Spoofing a process, tampering with a process, repudiation by a process or ID from a process cannot happen because of A1 and A3"
+25 ,A11,"Data flow tampering of DF1-DF3 and DF6-DF10 is not possible because of the channel confidentiality and integrity (However, when entities are spoofed, the messages can be tampered with by the entity)"
+25 ,A13,Flows between the delivery manager and the messages can be tampered with by entity
+25 ,A14,"Because of A1 and A3, tampering a data store or information disclosure from a data store is not possible"
+25 ,A15,Spoofing the delivery scheduler will not happen because there is no incoming link from external entitites and because of A1
+25 ,A6,Delivery entities receive a (temporary) unique token from eDocs that needs to be used when communicating
+25 ,A7,PDS users are authenticated by means of credentials
+25 ,A8,URLs of documents contain unique key to obtain the document
+25 ,A9,"When users have a URL to a document, they can access it without having to log in or provide any other authentication data"
+26 ,A10,"Because of A4, tampering with the Generated Docs Archive (DS1) is not possible"
+26 ,A11,"Repudiation of P1, P2, P3 is not likely to happen because there is not advantage"
+26 ,A12,"Information Disclosure of P1,P2, P3 is not likely to happen .e.g by side channels which times how long we (?) takes to complete"
+26 ,A13,"Tampering with P1,P2,P3 is not likely to happen because of A3"
+26 ,A14,Spoofing the PDS process (for obtaining PDS user credentials) is not likely to happen because of A2
+26 ,A16,Data flows DF11-DF23 will not be tampered/no information disclosure because they are all internal and because of A1
+26 ,A6,Invoices have confidentialty and integrity because they are signed with a key
+26 ,A7,PDS user is authenticated by credentials
+26 ,A8,"Because of A2, tampering and information disclosure is not posible via DF1-DF3 in DF6-DF10"
+26 ,A9,"Tampering with DS2 and DS3 is not possible because the PDS user entity can not change data in the stores, and by A1, tampering by internal system will not happen"
+27 ,A10,"Data flows with external entities (DF1-DF10) contain a timestamp (in case of DF1-3, DF6-DF10 this is encoded as well, see A2) to protect against replay attacks"
+27 ,A6,"The data flows between internal components (DF11-D23) occur within the organisation's internal trust network e.g. secure UTP cable which cannot be tapped, e.g. not using signals with  can be tapped from the outside such as 802.11. We therefore assume adversaries are not able to eavesdrop (protect against ID) or modify (protect against T) data within these flows"
+27 ,A7,"Data stores are located within the organisations walls on secure spots. hence, only employees are able to physically access them. Because of A1, this protects the data stores (DS1-DS3) against tampering, repudiation or information disclosure"
+27 ,A8,"Processes (P1-P3) are secure with respect to ID, R and T. The systems are secure (A3) and the employees are trustworthy (A1)"
+27 ,A9,"Since the delivery scheduler (P1) is not connected to external entities, and because of A1, spoofing of this process (P1) is not considered"
+28 ,A6,"Certificates are used by eDocs partners to identify themselves (zoomit, print, e-mail)"
+28 ,A7,We assume that our external document delivery providers are trustworthy
+28 ,A8,PDS user is identified by means of credentials
+28 ,A9,Registereing a PDS account requires no human verification
+29 ,A10,Data stores are accessed only by the internal components 
+29 ,A11,Data stores are password protected
+29 ,A12,User credentials like password are hashed and with salt
+29 ,A13,Login credentials are sent hashed
+29 ,A14,"For providing raw data ,the customer organisation is logged in"
+29 ,A15,Data sent in the trust boundary is reliable and secure
+29 ,A16,"The processes P1-P3 log about the events happening, like: user login, dcument delivery, data stored in a database"
+29 ,A6,The edocs users are authenticated by credentials
+29 ,A6,Edocs users are authenticated by credentials
+29 ,A7,"The links in the e-mail sent (in case receipt tracking activated) are unique/ because of this they can not be generated by an attacker, so in normal case no document cant be download by forcefull browsing"
+29 ,A8,P1 can only be accessed internally
+29 ,A9,The email syntax is checked 
+30 ,A10,"Spoofing the delivery manager (P2) doesnt seem very likely either, since nothing important enters the delivery manager from the outside, only delivery statuses and docIds"
+30 ,A11,Repudiation for the delivery manager/scheduler and PDS doesn't seem useful
+30 ,A12,"Tampering with DS1, DS2 seems unlikely, would probably be noticed very fast and probably easy to fix the consquences"
+30 ,A7,"Since the channels DF1-DF3. DF6-10 are encrypted, I assume they wont be tampered with and ID is not applicable"
+30 ,A8,"Since the systems is [..hard to read..] any memory-level manipulation, I assume P1, P2, P3 wont be tampered with"
+30 ,A9,"Spoofing the delivery scheduler (P1) doesnt seem very useful or very unlikely, since delivery manager has no contact outside eDocs system"
+31 ,A10,Recipients must respond to an e-mail confirmation request when making an account
+31 ,A6,Data flows with external entities (1-10) only occur if the entities can authenticate (PDS user: credentials; E1-3: SSL certificate; rest: token DF7)
+31 ,A6,The edocs system is protected against viruses and other malicious programs by up-to-date anit-virus software and other related tools/softwares
+31 ,A7,"Data flows between E3 and P2 (DF4,5) are also encrypted"
+31 ,A8,3rd party services have nothing to gain from repudiation (E1-E3)
+31 ,A9,Certification information is well guarded
+32 ,A10,The user data is stored in plain text in DS3
+32 ,A7,Delivery channels do not acknowledge receipt of delivery for a batch
+32 ,A8,eDocs deals with reputable third parties and/or has legal agreements with them
+32 ,A9,eDocs maintains proper logs of data stores
+33 ,A10,The E-mail provider doesnt send any data to the delivery manager. Only acknowledgements that something was delivered or failed
+33 ,A10,"e-mailprovider doesn't send any data to the delivery manager, only delivery status"
+33 ,A6,E1 (print service) and E2 (zoomit) are secure entities that cannot be spoofed
+33 ,A7,email provider cannot be spoofed
+33 ,A8,print service and zoomit will not repudiate
+33 ,A9,repudiation of requesting or obtaining doc is meaningless
+34 ,A10,A user has no benefit in claiming he has not registered while it is the case
+34 ,A11,Documents from the PDS require login credentials to be viewed
+34 ,A12,Also receiving email happens through an encrypted channel
+34 ,A6,The DNS servers used by eDocs to reach the email provider are secure. The communication for sending E-Mail is encrypted
+34 ,A7,Communication between processes in the system is secure. It is impossible these communications leave the system
+34 ,A8,The delivery manager cannot be influenced by the receipt of malformed emails
+34 ,A8,The delivery manager cannot be influenced by the receipt of malformed emails
+34 ,A9,"The information provided by a user to the PDS should not overwrite incorrect data, e.g. registering twice with the same mail address overwrites password"
+35 ,A10,The system performs no mail verification
+35 ,A11,The ID of a document does not contain sensitive data (or this is encrypted)
+35 ,A6,DF4 is not encypted
+35 ,A7,Requesting a document link does not require authentication
+35 ,A8,PDS user authenticates via credentials
+35 ,A9,Registration of a PDS user is unauthenticated
+36 ,A10,Spoofing an internal process (P1-P3) requires physically replacing the node on which this process is runing. Tis is not realistic for an attacker.
+36 ,A6,"With each of the external service providers (E1-E3), an SLA has been negotiated. They will behave according to this SLA. The SLAs are similar, so threats corresponding to them can be combined."
+36 ,A7,"DF4 and DF5 have the same endpoints, so the same communication channel will be used. Therefore the same threats are posed to these DFs"
+36 ,A8,"Entities E1-E3 are authenticated in a secure way, so they can not be spoofed"
+36 ,A9,P1-P3 is considered a trustworthy in boundary process. Repudiateion is not threat
+37 ,A6,PDS user is authenticated by means of credentials
+37 ,A7,Bank account numbers and other sensitive data are part of the invoices payslips
+37 ,A8,Session IDs are used
+38 ,A10,The protocol between edocs and delivery channels require authentication of the delivery channel (e.g DF3 and DF5)
+38 ,A6,The protocol between edocs and delivery channels requires authentication of edocs
+38 ,A7,The protocol between edocs and delivery channels has confirmation the channel has successfully received the request
+38 ,A8,The encrypted data flows described in A2 are achieved wuth certificates and certificate authorities
+38 ,A9,The data flows within the trust boundary do not leave the trust boundary and so lack(?) in the data stores are not stored remote
+39 ,A10,Inputs form (e.g login) are sufficiently secure to protect against attack such as SQL injection
+39 ,A11,logs are kept of all actions in the system (e.g. remove doc)
+39 ,A12,Internal databases can only be accessed with correct authentication
+39 ,A13,SSL stripping is still a threat
+39 ,A14,The databases are not invulnerable to attacks but they are secure enough to ensure that it will take a lot of effort from the attackers to gain access
+39 ,A15,Only trusted employees have physical access to the DBs
+39 ,A6,The PDS user is authenticated by means of credentials
+39 ,A7,Zoomit of print services send confirmation of the documents they receive
+39 ,A8,The data flows between P2 (delivery manager) and E3 (Email provider) are encrypted and are considered to have channel integrity and confidentialuty
+39 ,A9,Employees of edocs are authenticated by means of credentials
+40 ,A10,"A4 -in a way- suggests that tampering with DS1 is not applicable. Otherwise, it seems like that assumption is useless"
+40 ,A6,"Despite A1, it is possible that an attacker obtains login information of an edocs employee in some way"
+40 ,A7,"Due to A2, tampering and ID become non applicable threats"
+40 ,A8,The delivery scheduler can't be tampered with because it s not linked to an entity outside of the trust boundary
+40 ,A9,It's possible that a customer organisation admin stores/uses credentials in an unsafe way
+41 ,A10,Generated invoices documents include the details of the bank account to which the money should be paid to
+41 ,A11,The delivery manager keeps a list of trusted delivery services (E1-E3) and only sends documents to these trusted entities
+41 ,A12,The login credentials returned by DF23 are not encrypted
+41 ,A13,The PDS docs storage contains only correctly generated documents
+41 ,A14,"The data stores keep no logs, so no log-threats are considered"
+41 ,A14,The delivery scheduler communicates only internally and is thus considered secure
+41 ,A6,"A PDS user (E4) can try to login to the PDS (DF6) an unlimited number of times, with no delay even a large amount of attempt"
+41 ,A7,There is no requirement set on the strength of the password when a PDS user (E4) registers (DF8)
+41 ,A8,"The deovery entities (E1,E2,E3) and the PDS user (E4) will never deny that they received a certain document when they actually did"
+41 ,A9,The data flows DF4+DF5 are not encrypted and thus do not have channel confidentiality
+43 ,A10,"Data stores don't have any security (pwd, session)"
+43 ,A10,"Data stores don't have any security (pwd, session)"
+43 ,A11,Following data flows are not encrypted: DF3-DF4
+43 ,A6,"The delivery manager sends documents + link based on info found in metadata (Address,Delivery method,..)"
+43 ,A7,Passwords are stored encrypted
+43 ,A8,"When a PDS user registers, extra checks will be performed before creating the account. No extra checks when adding to PDS user data"
+43 ,A8,"When a PDS user registers, extra checks will be performed before creating the account. No extra checks when adding to PDS user data"
+43 ,A9,Documents in PDS docs can't be edited
+45 ,A10,The PDS user has no reason to deny that he or she consulted their PDS
+45 ,A11,the edocs manager is authenticated by means of credentials
+45 ,A6,Edocs should incorporate CAPTCHA for registration of the PDS or a timeout
+45 ,A7a,eDocs must state at registration that their users of the PDS choose a safe pwd (e.g. not easily guessable)
+45 ,A7b,PDS user is authenticated by means of credentials
+45 ,A9,The URL provided by email takes the user to his PDS (DF7). Extra authentication is required
+46 ,A6,"The user accesses the PDS by authentication, ie having credentials"
+46 ,A7,The log of the user is stored in the data store
+47 ,A6,The PDS user is authenticated by means of credentials
+47 ,A7,"The likelihood of E1,E2 or E3 denying that they have received the documents is low"
+47 ,A9,The likelihood of the encryption keys for the flows DF1-DF3 being stolen from the external services is low
+48 ,A10,The data stores are considered free from tampering or disclosure because they are used only by processes from within the trust boundary
+48 ,A11,The information in DF5 isnt of much value so the likeliness of disclosion (sic) is low
+48 ,A12,The delivery scheduler (P2) is free from threats; it's only used by the components within the trust boundary 
+48 ,A13,The PDS process(P3) checks whether the user request if valid (e.g. can not request files from other users) against tampering and disclosure
+48 ,A14,The likelihood of tampering with DF5 is low because it has low impact (nothing can be gained by the attack)
+48 ,A6,"T and ID threats are not applicalbe for DF1-3,6-10 because these data flows are encrypted"
+48 ,A7,Tampering with the document sent via mail (DF4) is difficult because the documents are encrypted with the private key of the sender
+48 ,A8,"The external print and zoomit service handle their credentials for authenticating with eDocs with care, so that it's very hard to obtain these"
+48 ,"A9
+", Data flows from within the trust boundary are considered free from tampering or disclosure
+49 ,A6,It is possible to impersonate processes and hijack data flows with a MITM attack
+49 ,A7,It is possible to impersonate processes and hijack data flows with a MITM attack
+50 ,A10,"Tampering for P1,P2,P3,DS1,DS2,DS3 does not apply because they cannot be directly accessed from the outside and A1 states they shall not be attacked from the inside"
+50 ,A11,A PDS user cannot use repudiation because the PDSDB keeps track of which documents have been opened
+50 ,A12,Repudiation on any logs in DS1 or DS2 is not interesting to an attacker; we assume them to be idempotent
+50 ,A13,ID not possible for P1 and P2 without insider access
+50 ,A7,"Because P1,P2, P3 are in the trust boundary, we assyme they can be correctly identified and not spoofed"
+50 ,A8,PDS user is authenticated by means of credentials
+50 ,A9,The PDS user db contains no logs and is therefore not a repudiation target
+51 ,A10,"No physicall access to the system by a non-employee is possible. Thus communication using data flows is entirely inside of the system are secure because employees are to be trusted (A1). As a result, these data flows are considered to have confidentiality and integrity"
+51 ,A11,The system will contact a delivery service in case a delivery status hasnt been received for a while
+51 ,A12,"Because the delivery manager only communicates with other internal processes, and thus spoofing is not possible (based also on A1 and A3)"
+51 ,A13,"All data stores do not have direct data flows with external entities, thus tampering and information disclosure are not possible (also based on A1 and A3)"
+51 ,A6,The eDocs system can safely start communication with an external delivery service (ie it cant commit to a spoofed entity)
+51 ,A7,A PDS user has nothing to gain from denying having read or downloaded a document from the PDS
+51 ,A8,"Delivery status only consists of the actual status (e.g. ""delivered"", ""read""...) and not of additional user address information"
+51 ,A9,"It is very unlikely for internal processes (P1,P2,P3) to deny sending or receiving certain information. Therefore repudiation of these processes does not apply"
+52 ,A10,The delivery scheduler (P1) is implemented well (protected well on code and memory level). Therefore we dont consider tampering and information disclosure aim to it.
+52 ,A11,The delivery manager and PDS (P2 and P3) are implemented securely
+52 ,A12,The PDS (DS2) and PDS user data (DS3) contains correctly generated documents and reliable information of user
+52 ,A13,The PDS docs and PDS user data are implemented correctly
+52 ,A14,"The data flow internal of the eDocs system (DF11-DF23) are all happening within local area network, so we dont consider them to be tampered"
+52 ,A15,"Since data flow (DF11-DF20) all contains very similar assets (documents,ids, statuses) and it's apparently easier to observe data flow between PDS and a data store (DF19,DF20). So I assume DF19 and DF20 are easier to be attacked. Therefore DF11-DF18 has low priority for ID threats"
+52 ,A17,"Data flow between PDS and User data store (DFS21-DS23) should have higher priority than DF19 and DF20, because user data is much easier to make use. And since the attacker gets user data,it's easier for the attacker to login to PDS and get specific documents of these users."
+52 ,A19,"The fata flow internal of the edocs system are not encrypted, so they are easy to suffer information disclosure threat"
+52 ,A20,"The PDS users are not always trained about information secrecy knowledge,so they are not aware of the risks of carelessly storing their credentials. Therefore they are easy to be spoofed"
+52 ,A20,"The PDS users are always not be trained about information security knowledge, so they are not aware of the risks of carelessly storing their credentials. Therefore they are easy to be spoofed"
+52 ,A6,"The external service provider E1,E2,E3 are trustworthy"
+52 ,A7,"Since the generated docs archive and the delivery scheduler, the delivery manager also perform delivering based on reliable information"
+52 ,A8,The employees of the edocs system are trained about information security knowledge so that not easy to be spoofed
+52 ,A9,The external service providers are trained about information security so that they are not easily spoofed
+53 ,A10,"All memory devices are cleaned if they need to be replaced  (failed hard drive), DS1-3"
+53 ,A6,"The addresses of the following entities (E1,E2,E3) are known and static and cannot be spoofed and authenticate using keys"
+53 ,A7,"P3, the PDS does not disclose any information except to authorized and authenticated users (and to P2. delivery manager)"
+53 ,A8,DS2 (PDS docs) and DS3 (PDS user data) are configured to only answer to requests originating from PDS
+53 ,A9,"DS1 (Generated docs archive) is configured to only respond to requests coming from P1,P2"
+54 ,A6,"After negotiations for SLA, E1 and E3 are deemed trustworthy"
+54 ,A7,Credentials are not saved in plaintext
+54 ,A7,The eDocs system does not require to log in to zoomit in order to send it documents (nothing is said in domain analysis)
+54 ,A8,We assume eDocs is a trustworthy company which does not want to harm its clients and business partners
+55 ,A10,"Since A2, tampering with DF1-DF3 and DF6-DF10 is impossible"
+55 ,A11,Since A1 and A3: tampering and ID of the data stores is impossible
+55 ,A12,A print service uses a website to communicate with its clients (eDocs system)
+55 ,A13,Since A2 entails channel integrity ID from data flow is not considered for those data flows
+55 ,A6,"In this day and age, the amount of recipients that asks to have their invoices and/or payslips delivered by post is small"
+55 ,A7,There is no authentication of zoomit or mail provider
+55 ,A8,The PDS user has access to all its personal information in case its address ... needs to be changed or updated
+55 ,A9,"Since A1, the data stores are not protected"
+56 ,A6,The PDS user is authenticated by means of credentials
+56 ,A7,eDocs does not store any data about batches of document it has sent to zoomit/print service
+57 ,A10,No logs used in the system
+57 ,A11,No inputs validation is used in the system (P3)
+57 ,A7,Zoomit and mail provider dont have to authenticate before sending delivery status updates
+57 ,A8,The zoomit service and email provider dont have to be authenticated to update the delivery status
+57 ,A9,The PDS user is authenticated by means of credentials
+58 ,A10,The PDS user is authenticated by means of PDS credentials
+58 ,A6,The sent documents via Zoomit(E2) or mail provider (E3) are stored in a cache in case of a failure (no docs are lost) (DF1-DF3) 
+58 ,A7,"The PDS users have a unique PDS ID to log in into their PDS, different from the credentials to logging into the system (FD6) -- you don't need to have a PDS to be able to log in into the edocs system"
+59 ,A10,As business partners the delivery entities are trustworthy and therefore repudiation does not occur
+59 ,A6,Tampering with dataflows inside the trust boundary does not happen (no external components)
+59 ,A7,ID of dataflows within the trust boundary is not possible: nothing is external
+59 ,A8,No ID on DF1-3 and DF6-10 because of encryption (ref A2)
+59 ,A9,"Repudiation of processes and data stores can only happen from within and according to A1, this is not possible"
+60 ,A10,Edocs uses a trustworthy mail provider
+60 ,A11,"If a user opens a document, there is no point in it for them to deny they did"
+60 ,A12,No logs are kept on the system
+60 ,A13,There is no point for an attacker to tamper with the dataflow for registration
+60 ,A14,User are authenticated by credentials
+60 ,A6,Passwords are stored encrypted
+60 ,A7,Communication between edocs and the print service/zoomit works with key pairs
+60 ,A8,The data storage facilities are properly secured
+60 ,A9,Mail provider always sends errors when it could not send mail
+61 ,A6,DF4 and DF5 are not thoroughly secured (A2 does not cover this)
+61 ,A7,"only external threats can occur, the internal system is very secure (extra confirmation for A1 and A3)"
+61 ,A8,"PDFs and URL might contain sensitive, valuable and vulnerable information"
+61 ,A9,The systems reputation is high enough to attract attackers (and wanting to cause harm)
+62 ,A10,"The PDS keeps adequate logs about the users actions. Therefore, users can not deny having made some actions, such as reading a document"
+62 ,A11,"DS1,DS2,DS3 are only accessible by P1, P2, P3. Thus, P1-3 cant be spoofed to the datastores, e.g. P3 runs on the same physical node as DS2 and DS3, so they are not coneected over Internet. Tampering & ID are therefore impossible"
+62 ,A12,"All encrypted communication can be read by the receiver only, an assymetric encryption scheme is used"
+62 ,A13,"All datastores keep logs of every action that is undertaken. Once logged, an  entry in the log is immutable"
+62 ,A7,"E1,E2,E3 can not be spoofed. Due to the assumption A2, an attacker can not send meaningful messages to the system in their name, nor can he interpret messages obtained by name squatting"
+62 ,A8,"E1,E2 and E3 will deny neither the reception of a document for delivery nor the delivery of a document, since this would cost them money (assumption: they are paid per document that is delivered)"
+62 ,A9,"Due to the encryption of dataflows between E1 E2 and E3 and P2, P2 is immune to tampering by passing malicious parameters. Attackers can not construct messages to P2 since they do not have the encryption key (in contrast to the communication between E4 and P3)"
+63 ,A6,The data flow between P2 and E3 are not encrypted
+63 ,A7,"P1, P2, P3 can each be deployed on a different node"
+63 ,A8,DS1 and DS2 are replicated on multiple nodes
+63 ,A9,"The PDS and PDS user data (DS3) are on the same node and their data flows are encrypted (DF21,22,23)"
+64 ,A11,eDocs admins are only allowed to log in in house
+64 ,A12,PDS users are unable to request any information of other users
+64 ,A13,"The delivery manager and scheduler and the PDS and the PDS process only communicate through local network, preventing internal data flow attacks"
+64 ,A15,External delivery services can not request sending a specific document
+64 ,A6,We use well-established printing service companies and send docs automatically. There there is no risk of spoofing and repudiation
+64 ,A7,"Zoomit is wellknown service and all communication is automated. We assume, since zoomit handles bank info, that zoomit is protected against attackers getting access to docs"
+64 ,A8,"Our emails are sent inhouse and therefore the email provider is not vulnerable to spoofing (DF4-5,E3)"
+64 ,A9,PDS users are authenticated by means of credentials
+65 ,A10,"All input is verified, queries in databases use precautions to counter against SQL injections"
+65 ,A11,The system provides interfaces/facades that limit access to it. All communication goes through them
+65 ,A6,A PDS user can only read documents from the PDS docs (DS2) so it cannot be tampered
+65 ,A7,"Whenever PDS user registers, the mail address is verified so that only the actual owner of the email address can use it and obtain all docs linked to it"
+65 ,A8,"The print service and zoomit are properly authenticated. data that is sent, is signed so the sender can be verified"
+65 ,A9,The delivery scheduler and generated docs archive can only be accessed by internal processes
+66 ,A10,Each generated document is delivered at least once
+66 ,A11,The delivery manager will only retrieve documents from DS1 when told to by the scheduler
+66 ,A12,The delivery manager will only deliver messages when told to by the scheduler
+66 ,A13,When a user registers he receives a randomly generated password that can be changed if wanted
+66 ,A14,Altering a document has no effect on the actual payment depending on the document
+66 ,A15,Zoomit and emailprovider can not request documents
+66 ,A16,"The generated docs archive will never alter documents nor ids, only status info"
+66 ,A17,Status info updates can only follow this order: (to prevent resending and hiding docs): received data->generating->generated->sent->delivered->read
+66 ,A18,The delivery manager keeps no information of a customer organisation or client
+66 ,A19,It's not possible for a PDS user to delete a doc
+66 ,A20,It's not pssoble to tamper with internal connections or components without access from an outside component (e.g. DF14 cannot be listened in on)
+66 ,A6,PDS user is authenticated by means of credentials
+66 ,A7,It's not possible to spoof someone's real life address (eg steal his postal mail)
+66 ,A8,Resending a document never implies it is billed multiple times
+66 ,A9,It's not posible to alter a PDF
+67 ,A10,The sensitive information in PDS user data (DS3) is hashed in order to keep it secure
+67 ,A6,"The print service, zoomit and the email provider have no gain to repudiate. Therefore, we can assume the repudiation threat can be ignored for them."
+67 ,A7,All external entities (E1-E4) are authenticated by means of credentials. The implementation of the authentication is secure
+67 ,A7,All external entities (E1-E4) are authenticated by means of credentials. The implementation of the authentication is secure
+67 ,A8,"The print service, zoomit and the email provider are expected to be trustworthy. So they are expected to be able to keep their credentials secret."
+67 ,A9,Each of the invoices is signed with a key and cannot be tampered with without removing the signature
+68 ,A10,There is no identification by IP address to the send services.
+68 ,A11,There is no limit to the amount of shipments on the send services
+68 ,A12,A document with tracking for an unregistred user has a public link
+68 ,A6,All customer organization employees can be trusted on the fact that they dont send illegal/spam mailing
+68 ,A7,The E-mail provider is a secure environment. Only authenticationusers have access to send data
+68 ,A9,A document can be accessed unlimited times
+69 ,A10,PDS docs and PDS user data contain no logs
+69 ,A6,Every entity is identified with credentials
+69 ,A7,The PDS can be accessed by internet
+69 ,A8,Edocs has an SLA with every delivery service
+69 ,A9,There is not worthwhile action a PDS user wants to repudiate
+70 ,A10,"its not possible to information disclosure from DF1,2,3,6,7,8,9,10 because of A2"
+70 ,A11,Its not possible to disclose information from P1 because it's not connected to an external entity
+70 ,A12,Its not possible to tamper or disclose information from the DFs 11-13 because it's traffic between P1 and DS1
+70 ,A13,The printer service cannot be spoofed because no incoming request/dataflow is sent by this service\
+70 ,A6,the PDS user logs in by means of credentials
+70 ,A7,"Data flows 1,2,3,6,7,8,9,10 are not considered as a ""tamperng threat"" because of A2"
+70 ,A8,"It's not possible to spoof P1 because it only receives requests via DS1, not from external entitiy"
+70 ,A9,Its not possible to tamper a process because of A3
+71 ,A10,"For zoomit delivery, a credit card number is provided"
+71 ,A11,A credit card number is saved in the PDS user data
+71 ,A6,the PDS user logs in by means of credentials
+71 ,A7,Payslip/invoice does not contain very sensitive information
+71 ,A8,There is no reason for attacker to read delivery notification (DF5)
+71 ,A9,DF5 is only used to notify the system of delivery of a document or of the failure of a delivery
+71 ,A9,DF5 is only used to notify system of doc delivery
+72 ,A10,"Delivery manager only provides interface for acknowledging received, reporting errors (no queries)"
+72 ,A11,There is no need for logging in for services in the delivery manager. All info is added by eDocs operators
+72 ,A12,dataflows inside trust boundary are considered secure
+72 ,A13,databases are secured against attacks (like SQL injections)
+72 ,A6,"eDocs operators are trustworthy, so no untrustworthy privacy service, zoomit, or email provider can be added"
+72 ,A9,Proper non-repudiation mechanism for users and services is provided so they cannot repudiate
+73 ,A10,Data stores are type checked and do not allow bad data
+73 ,A11,Logs are encrypted and hash of logs is stored elsewhere
+73 ,A6,the PDS user logs in by means of credentials
+73 ,A7,Email provider has deal about security with our company
+73 ,A8,dataflows between processes are encrypted and have confidentiality and integrity
+73 ,A9,Access to data stores is authenticated and encrypted
+74 ,A6,the PDS user logs in by means of credentials
+74 ,A7,DF3 and DF5 can only be used for delivery notification
+74 ,A8,DF4 and DF5 are not encrypted
+74 ,A9,"eDocs has direct channel to print service, zoomit and email provider and no entity can pose as one of them"
+75 ,A10,"Through DF3, any registration/configuration with zoomit is setup as well"
+75 ,A11,Zoomit is not prone to security leaks
+75 ,A12,The Email provider is not prone to security leaks
+75 ,A12,The Emailprovider is not prone to security leaks
+75 ,A6,The PDS user is authenticated by means of credentials
+75 ,A7,The PDS user makes use of an authentication UI
+75 ,A8,The PDS user can reset credentials though email
+75 ,A9,Any receipt tracking of documents is tracked server side and thus is reliable (and is logged)
+76 ,A10,"Processes P1, P2, P3 write right logs and admin access"
+76 ,A11,Login credentials are encrypted using MD5 encryption
+76 ,A12,Documents are password protected
+76 ,A13,The document archive (DS2) contains correctly generated documents
+76 ,A6,The PDS users are authenticated by means of credentials
+76 ,A7,The services like Zoomit and Email providers are authenticated by public key
+76 ,A8,All flow between delivery manager and E-mail provider are not encrypted
+76 ,A9,Logs are only stored in DS3
+77 ,A10,"No data can be inserted in DS2, because that functionality is only internally available"
+77 ,A6,All entities will explicitly acknowledge receival of a message
+77 ,A7,"After individual authentication, individual requests are not checked for validity"
+77 ,A8,SQL injection protection is not in place
+77 ,A9,"Communication within the system can not be altered or leaked, cf also A1,A3"
+78 ,A10,"All delivery channels (E1, E2, E3) are sufficiently protected against internal attacks"
+78 ,A10,"All delivery channels (E1,E2,E3) are sufficiently protected against internal attacks"
+78 ,A11,E1 is a respected company and has nothing to win by repudiating document deliveries/receivals. It has a reputation to hold high
+78 ,A12,Every sending component only discloses as much information as is necessary for the receiving component to do its job properly.
+78 ,A13,A registered recipient needs to log in before accessing the document to which he/she has received a link in a notification mail
+78 ,A7,E2 and E3 send a confirmaition to P2 upon receival
+78 ,A8,E4 sends a confirmation to P3 upon receival
+78 ,A9,DF12 only contains the necessary info for P1 to function properly. This information is not distributed any further along the channel if it is not necessary
+79 ,A6,"The communication between delivery scheduler , P1 and generated docs archive DS1 is considered to (be) secured since it are internal communcation flows of the system. Thus the dataflows: P1->DS1 and DS1-> P1 are considered to be safew"
+79 ,A7,"The flows P1->P2, P2->DS1, P2->P3, P2->P3 are considered secure since it are internal comminication flows of edocs entities"
+79 ,A8,"The flows P3->P2, P3->P2, P3->DS2,DS2->P3 are considered secure since it are internal comminication flows of edocs entities"
+79 ,A9,"The flows P3->DS2,P3->DS2,DS3->P3 are considered secure since it are internal comminication flows of edocs entities"
+80 ,A6,Passwords cant be changed by other people than the user
+80 ,A7,The PDS is sufficiently secure (so) that gaining full access is impossible without the right credentials
+80 ,A8,Print and .. logs are correct and secure/Delivery schedler and manager are secure in  way that the system can be sure of what was sent
+81 ,A10,It has no use to spoof P1 and P2 because they can get access to important information.The only mehtods that they can do is send a document and accept delivery of a document
+81 ,A11,The contact information is given in the meta data of the document. The A2 says that it wont be changed. Therefore the documents will be delivered at the right address
+81 ,A12,"Because everyone needs to log in before something can be added/changed to the system, no one can without permission change something in the system."
+81 ,A13,A mail is sent to the mail address which is given when creating an account. The mail eneds to be received and accepted before the account is activated
+81 ,A14,"Before something can be retrieved, someone needs to log in and have the permission to retrieve it"
+81 ,A6,"Print service, zoomit and mail provider are secure enough so that they cant be spoofed (they use secure keys)"
+81 ,A7,PDS users log in using credentials
+81 ,A9,"WHen a document is retrieved from the PDS, this retrieval is documented and saved. The system cant use repudiation (sic)"
+82 ,A10,"Good access control in DS1-3; so no info is leaked and tampered requests are ignored. Tampered request= user asks for doc1, tampered req asks for doc 2(of another user)"
+82 ,A11,PDS login happens through an email address and a password
+82 ,A11,there are multiple instances of P2-P3 and can be spoofed. P1 and DS1-3 can not be spoofed
+82 ,A12,Tampering with DF3 and DF5 is no problem. It could be that documents would be resent but that is very unlikely and irrelevant
+82 ,A13,DF14 seems irrelevant because P2 can only read from DS1 but no response is possible. Thus DF14 is ignored.
+82 ,A14,DF11 and DF12 are completely trusted since P1 and DS1 connot be directly attacked
+82 ,A6,DF4 and DF5 are encrypted and are considered to have channel confidentiality and integrity
+82 ,A7,"Repudiation for E4 (and P3) is no threat. We dont care if he reads his own documents or not. Since no write are issued, this is OKay."
+82 ,A8,The threats for P1 are irrelevant since the implementaiton is good and no attackers can reach it from outside. (See A1 and A3). It can not be reverse-engineered
+82 ,A9,Credentials are hashed and salt is added so a spoofing PDS can not dump DS3
+83 ,A10,The PDS can access all documents in PDS docs and all the user information
+83 ,A11,The delivery scheduler and delivery manager are on the same machine. The PDS and the data stores are each on another machine
+83 ,A6,PDS user can only view its own documents
+83 ,A7,Only documents and their metadata are sent to the delivery channels (e.g. not the SLAs)
+83 ,A8,Receiving a document twice doesnt mean you have to pay twice
+83 ,A9,The delivery scheduler can only receive new documents that didn already pass through him
+84 ,A10,spoofing the print service is no threat because there is no data flow from the print service back to the delivery manager
+84 ,A6,The print service/zoomit/mail provider are trustworthy partners
+84 ,A7,Zoomit and the mail provider have secure policy for storing credentials
+84 ,A8,Data flows within the trust boundary cannot be attacked (DF11-DF23)
+84 ,A9,DF4 and DF5 are not encrypted and thus have no channel confidentiality/integrity
+85 ,A10,A proper framework is used while generating the documents. Hence the threat level is very negligible
+85 ,A11,A cross check is done after every implementation so that memory level manipulation is ensured (SIC)
+85 ,A12,The generated docs archive maintains integrity
+85 ,A13,The delivery manager will make sure that the delivery channels are trustworthy
+85 ,A14,"The data flows between PDS (P3) and E4 (PDS user) is encrypted (DF6,DF7,DF9, DF10) so that tampering of data can be reduced"
+85 ,A15,The data stored in PDS are restricted with permission credentials where  only trusted people can access at
+85 ,A16,All the dataflows within turst boundary are all encrypted
+85 ,A17,"The development, testing, maintenance, implementating, everything is secured."
+85 ,A18,While giving login credentials to users or while users setting the login credentials should allow all instruction given so that the chances of threats are less
+85 ,A19,Every entity should maintain the crosscheck in each and every step
+85 ,A20,Entities should maintain integrity
+85 ,A21,Confidential information should not be stored with someone who is not authorized
+85 ,A22,Professional ethics should be maintained by every one and should misutilize properties as personal
+85 ,A6,The generated documents are well-maintained so as to ensure security
+85 ,A7,The stored documents in generated docs archive are given with strong permission credentials so that authorized users can assess
+85 ,A8,The data flow between P2 and E3 are encrypted and integrity is maintained in a well amnner
+85 ,A9,The edocs system is divided into small parts so that it is easy to maintain the security of each and every stem (?) systems
+86 ,A10,The PDS uses sessions for logged-in users
+86 ,A11,Sending Emails via the E-mail provider is secure
+86 ,A6,The PDS user is authenticated with credentials
+86 ,A7,"The print service, zoomit and mail providers are trustworthy and will not disclose documents"
+86 ,A8,"They (The print service, zoomit and mail providers) will never deny being sent a document"
+86 ,A9,All communication within the trust boundary is safe
+87 ,A6,The employees are trained in password managment. Therefore they all have an unguessable strong password which is secretly stored in their mind
+87 ,A7,Edocs database are only accessible from within the system
+87 ,A8,"When a user account is made, the email address hsould be confirmed"
+88 ,A7,A PDS user is authenticated by means of credentials
+88 ,A8,"All the datastores are protected (DS1,DS2, DS3)"
+88 ,A9,The PDS (P3) only contains documents of a specific user
+89 ,A10,EDocs pays the mail provider per mail they send
+89 ,A12,"Seen A1 and A2, the data from and to the PDS user is not vulnerable for information disclosure"
+89 ,A13,DF5 is not vulnerable to information disclosure; it does not contain info useful to an outsider
+89 ,A14,PDS users can remove documents from their overview
+89 ,A15,"Attacker could mail E1,E2, E4 with an email that ressembles edocs email saying it has lost its credentials. We assume that E1,E2,E3 are good enough programmed to no send credentials to a resembling address"
+89 ,A17,"If a user forgets his password to the PDS, his password is emailed to him"
+89 ,A18,The deliverers have no way of distinguishing messages that are already sent and new messages
+89 ,A6,"Edocs logins by credentials to zoomit,email provider, print service, and sends them their documents to be sent"
+89 ,A7,"The print service, zoomit, email provider only send documents. We assume that they want to have high profits so they wont say that they havent sent a document and miss a billing opportunity"
+89 ,A8,A PDS user is authenticated by means of credentials
+89 ,A9,DF4 and DF5 do not have any encryption
+90 ,A10,We assume there are no logs held for the PDS userś interaction with the PDS
+90 ,A11,We assume that either DF9 or DF10 is responsible for receipt notification
+90 ,A12,"We assume for DF12, DF13, DF15,DF19 and DF20 that the document itself is sent, not a document id that is later used for document retrieval"
+90 ,A13,"We assume for DF12, DF13, DF15,DF19 and DF20 that the document is not used for "
+90 ,A14,"We assume only requests are sent in DF11, no documents"
+90 ,A15,"For dataflow DF14, we assume only limited request can be made (status) so impact and likelihood are very low"
+90 ,A16,"We assume for DF16, only minor data can be sent"
+90 ,A17,"We assume tthat the DS2, DS3 and P3 are thightly coupled so the likelihood of breaking in the DB is almost zero"
+90 ,A18,"We assume the internal working of P1,P2, and P3 are complex enough they cant be spoofed without recognition"
+90 ,A6,The PDS user has received credentials at registration and uses them for authentication
+90 ,A7,"For E1,E2,E3 we assume there is a good SLA and consider them services that are trustworthy"
+90 ,A8,We assume that for DF4 and DF5 that the communicaion occurs with a simple SMTP servier that is not secure and easily hacked
+90 ,A9,"We assume that for DF5, the email provider only sends deliverer notifications and receipt tracking info"
+91 ,A10,The print service has taken security measures to prevent the takeover of its system
+91 ,A11,Spoofing an email provider only results in being able to park documents as sent. This is no useful functionality for an attacker
+91 ,A12,A PDS user is authenticated by means of credentials
+91 ,A13,The delivery scheduler is not connected durectly to systems outside of eDocs 
+91 ,A14,"The generated documents are valid info for the delivery scheduler, no input validation is necessary (P1)"
+91 ,A15,The delivery scheduler does not deny having sent or received documents
+91 ,A16,The delivery scheduler can only communicate with parts of the eDocs system. No design-level information disclosure is possible
+91 ,A17,"No tampering is possible with DF1 when using strong encryption (also for DF2, and DF3)"
+91 ,A18,Communication goes over the public Internet
+91 ,A19,Email traffic is not encrypted
+91 ,A20,Email traffic is sent over the public internet
+91 ,A6,"The spoofing of a print service (E1) is not applicable, since the system knows the correct delivery on only sends info to it"
+91 ,A7,The print service has seigned a legally binding SLA specifiying it will print and send documents
+91 ,A8,Zoomit has signed a legally binding SLA specifying it will deliver the documents it receives
+91 ,A9,Zoomit has taken security measures to prevent the takeover of its system
+92 ,A6,"DS3 passwords are not stored in plain text, with hash and salt -> even when attackers get access no immediate harm is done"
+92 ,A7,"When entities deny they received the data that was sent to them, it is sent again"
+92 ,A8,Data sent between PDS and PDS User data is encrypted so that this very sensitive information cannot be read in data flow
+94 ,A7,Queries to the PDS datastore are not authenticated

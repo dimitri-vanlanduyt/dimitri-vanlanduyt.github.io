@@ -1,0 +1,39 @@
+Expert ID;Assumption ID;Summary
+1;A3;The e-docs system does not store explicit logs. (Not part of domain description or requirement)
+2;A3;The implementation used in the system is secure
+2;A4;No proper authentication of the dashboard (P1)
+2;A5;Batch delivery confirmation does not include enough detailed information about the batch.
+2;A6;No proper authentication of P3  E2/E3/E4 
+2;A7;eDocs has nothing to gain in repudiating delivery status updates  it only leads to damage for them 
+2;A8;eDocs does not perform email address (physical address) verification before associating PDS user with recipient 
+2;A9;A PDS user (E4) cannot repudiate having received the document since he�s logged in or used the unique URL (relies on A10)
+2;A10;The unique URL sent to PDS users (E4) is not guessable
+2;A11;eDocs does not properly check the incoming data for possible malicious modification
+2;A12;the PDS (P4) is not properly authenticated towards the end-user (E5)
+2;A13;A3 the secure implementation in the system use the correct crypto-primitives and is correctly configured to prevent replay attacks
+3;A6;Receipt tracking is not used for legal attestation.
+3;A7;We keep any doc stored locally after sending it to the print service (E1) /zoomit (E2) /email provider (E3) ( or the raw data so that we can regenerate it) so that an external party losing the doc does not definitely lose it
+3;A8;DF5 is only used to notify us of the failed e-mails (so not really receipt tracking)
+3;A9;orgs will employ receipt tracking for important documents & contact the user directly if a doc is not received in X days
+3;A10;Tampering does not apply to P2
+3;A11;A message of the email provider that an email has failed always has to refer to an existing email or is otherwise useless without doing harm
+3;A12;Repudiation does not hold for P2: if threat 10 is handled  there is no need to for us to employ non-repudiation (unless an external service requires this) 
+3;A13;Information disclosure does not hold for P2
+3;A14;There are not threats for dataflows that do not cross a trust boundary (D12 DF11 DF13 DF14 DF20 DF19 DF21 DF22 DF23)
+3;A15;Repudiation does not hold for P3
+3;A16;Apart from threat 15  there are no tampering threats against P3 since no data is updated & A3 holds 
+3;A17;Information disclosure does not apply to user data (DS3) because this data is never returned outside of the trust boundary
+3;A18;Tampering does not apply to DS2 because this data store is never in the DFD
+3;A19;Information disclosure is not documented for DS1 or P1 because the docs are covered by P2 threats and the meta-data is never returned outside the trust boundary
+3;A20;Repudiation does not hold for the data stores because there is no log data (and the status updates are already covered)
+3;A21;Spoofing Tampering Repudiation does not apply to P1 because there is no interaction outside the trust boundary
+4;A6;The edocs system works with well-known and thus trustworthy partners (carefully selected by edocs) for delivery (print E1.  Zoomit E2.  Email E3l) which are accessible in a well-defined way. These entities can be clearly identified => DF1 DF2  DF3 arrive at the correct entity.
+4;A7;Zoomit  (E2) is a well-known service.  used by all major banks. We not consider the possibility that someone obtains credentials. Spoofing zoomit (E2) is not considered. In the same way.  it will not risk its reputation by doing repudiation. 
+4;A8;The internal processes (P1 P2 P3) will not falsely claim that they did or did not receive messages (also related to A1) towards each other.
+4;A9;Internal interfaces are not accessible from outside to the trust boundary. Spoofing delivery scheduler (P1) is not possible and spoofing PDS will not give access to internal interfaces of delivery manager (P2) or �storage�  (DS1 DS2 DS3)
+4;A10A;PDS user data (DS3) and PDS docs (DS2) do not store log data.
+4;A10B;DS1 stores logs about delivery of documents.
+4;A11;A PDS user (E4) can access documents directly via the URL in the email  without login 
+4;A12;We assume that the edocs system generates unique URLs in a secure manner
+4;A13;the PDS system securely logs the sessions of the PDS users (E4) : login.  access to documents
+4;A14;The delivery manager (P2) does not generate delivery status messages itself  but relies on status messages from the delivery channels (based on DFD) 
